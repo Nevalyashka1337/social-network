@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { isChecked } from './selectors/auth'
 import { checkAuth } from './actions/auth'
+import './styles/App.css'
 
 export class App extends Component {
 	componentDidMount() {
