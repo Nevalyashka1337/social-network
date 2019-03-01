@@ -7,7 +7,6 @@ export class HomePage extends Component {
 			<div>
 				<NavBar/>
 				<h1>welcome</h1>
-				<p>you are not authorized</p>
 			</div>
 		)
 	}
