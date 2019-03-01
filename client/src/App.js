@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/HomePage'
 import UsersPage from './containers/UsersPage'
 import './styles/App.css'
+import { withRouter } from 'react-router-dom'
 
 export class App extends Component {
 	componentDidMount() {
@@ -36,7 +37,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 	checkAuth
 }, dispatch)
 
-export default connect(
+export default withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(App)
+)(App))
