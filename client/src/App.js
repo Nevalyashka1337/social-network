@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { isChecked } from './selectors/auth'
 import { checkAuth } from './actions/auth'
+import { Switch, Route } from 'react-router-dom'
+import HomePage from './containers/HomePage'
 import './styles/App.css'
 
 export class App extends Component {
@@ -13,9 +15,9 @@ export class App extends Component {
 	preloader = () => (<p>loading...</p>)
 
 	routes = () => (
-		<div>
-			<h1>hello react</h1>
-		</div>
+		<Switch>
+			<Route path='/' exact render={() => <HomePage/>}/>
+		</Switch>
 	)
 
 	render() {
