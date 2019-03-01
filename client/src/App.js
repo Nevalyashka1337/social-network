@@ -5,6 +5,7 @@ import { isChecked } from './selectors/auth'
 import { checkAuth } from './actions/auth'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/HomePage'
+import UsersPage from './containers/UsersPage'
 import './styles/App.css'
 
 export class App extends Component {
@@ -16,7 +17,8 @@ export class App extends Component {
 
 	routes = () => (
 		<Switch>
-			<Route path='/' exact render={() => <HomePage/>}/>
+			<Route path='/' exact render={() => <HomePage/>} />
+			<Route path='/users' exact render={() => <UsersPage/>} />
 		</Switch>
 	)
 
