@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../actions/users'
-import { users, isFetching } from '../selectors/users'
+import { users, isFetching, error } from '../selectors/users'
 import { Link } from 'react-router-dom'
 
 export class UsersPage extends Component {
@@ -12,9 +12,11 @@ export class UsersPage extends Component {
 	}
 
 	getBody = () => {
-		const { isFetching, users } = this.props
+		const { isFetching, users, error } = this.props
 		if ( isFetching ) {
 			return (<p>loading...</p>)
+		} else if (error) {
+			return (<p>ERROR</p>)
 		} else {
 			if ( users.length > 0 ) {
 				return (
@@ -44,7 +46,8 @@ export class UsersPage extends Component {
 
 const mapStateToProps = state => ({
 	users: users(state),
-	isFetching: isFetching(state)
+	isFetching: isFetching(state),
+	error: error(state)
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

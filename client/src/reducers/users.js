@@ -2,7 +2,8 @@ import * as t from '../constants/users'
 
 export const initState = {
 	users: [],
-	isFetching: false
+	isFetching: false,
+	error: false
 }
 
 const usersReducer = (state = initState, action) => {
@@ -12,7 +13,7 @@ const usersReducer = (state = initState, action) => {
 		case t.FETCH_USERS_SUCCESS:
 			return { ...state, users: action.payload, isFetching: false }
 		case t.FETCH_USERS_FAILURE:
-			return { ...state, isFetching: false }
+			return { ...state, isFetching: false, error: true }
 		default:
 			return state
 	}
