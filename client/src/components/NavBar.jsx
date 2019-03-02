@@ -7,6 +7,7 @@ function NavBar() {
 			<ul className="navbar">
 				<li className="navbar__item"><Link to="/">home</Link></li>
 				<li className="navbar__item"><Link to="/users">users</Link></li>
+				<li className="navbar__item"><Link to="/signin">signin</Link></li>
 			</ul>
 		</>
 	)

@@ -6,6 +6,7 @@ import { checkAuth } from './actions/auth'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/HomePage'
 import UsersPage from './containers/UsersPage'
+import SignInPage from './containers/SignInPage'
 import './styles/App.css'
 import { withRouter } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ export class App extends Component {
 		<Switch>
 			<Route path='/' exact render={() => <HomePage/>} />
 			<Route path='/users' exact render={() => <UsersPage/>} />
+			<Route path='/signin' exact render={() => <SignInPage/>} />
 		</Switch>
 	)
 
