@@ -8,6 +8,7 @@ import HomePage from './containers/HomePage'
 import UsersPage from './containers/UsersPage'
 import SignInPage from './containers/SignInPage'
 import SignUpPage from './containers/SignUpPage'
+import NotFound from './components/NotFound'
 import './styles/App.css'
 import { withRouter } from 'react-router-dom'
 
@@ -24,6 +25,7 @@ export class App extends Component {
 			<Route path='/users' exact render={() => <UsersPage/>} />
 			<Route path='/account/signin' exact render={() => <SignInPage/>} />
 			<Route path='/account/signup' exact render={() => <SignUpPage/>} />
+			<Route component={NotFound}/>
 		</Switch>
 	)
 
