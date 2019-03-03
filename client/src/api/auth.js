@@ -26,5 +26,22 @@ export default {
 				reject()
 			})
 		})
+	},
+
+	signup: (username, password) => {
+		return new Promise((resolve, reject) => {
+			fetch('http://localhost:3001/api/auth/signup', {
+				method: 'POST',
+				credentials: 'include',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ username, password })
+			}).then(res => res.json()).then(res => {
+				res.success ? resolve(res.me) : reject()
+			}).catch(() => {
+				reject()
+			})
+		})
 	}
 }
