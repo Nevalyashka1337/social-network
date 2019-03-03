@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBar'
+import NavBar from './NavBar'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../actions/users'

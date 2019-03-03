@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBar'
+import NavBar from './NavBar'
 import { connect } from 'react-redux'
 import { signUp } from '../actions/auth'
 import { isAuth } from '../selectors/auth'

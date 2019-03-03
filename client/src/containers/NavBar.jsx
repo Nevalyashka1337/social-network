@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { isAuth } from '../selectors/auth'
 
-function NavBar() {
+function NavBar(props) {
+	console.log(props)
 	return (
 		<>
 			<ul className="navbar">
@@ -14,4 +17,10 @@ function NavBar() {
 	)
 }
 
-export default NavBar
+const mapStateToProps = state => ({
+	isAuth: isAuth(state)
+})
+
+export default connect(
+	mapStateToProps
+)(NavBar)
