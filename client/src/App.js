@@ -22,8 +22,8 @@ export class App extends Component {
 		<Switch>
 			<Route path='/' exact render={() => <HomePage/>} />
 			<Route path='/users' exact render={() => <UsersPage/>} />
-			<Route path='/signin' exact render={() => <SignInPage/>} />
-			<Route path='/signup' exact render={() => <SignUpPage/>} />
+			<Route path='/account/signin' exact render={() => <SignInPage/>} />
+			<Route path='/account/signup' exact render={() => <SignUpPage/>} />
 		</Switch>
 	)
 

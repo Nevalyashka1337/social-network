@@ -13,8 +13,8 @@ function NavBar({ isAuth }) {
 	const notAuthNavBar = () => (
 		<>
 			<li className="navbar__item"><Link to="/">home</Link></li>
-			<li className="navbar__item"><Link to="/signin">signin</Link></li>
-			<li className="navbar__item"><Link to="/signup">signup</Link></li>
+			<li className="navbar__item"><Link to="/account/signin">signin</Link></li>
+			<li className="navbar__item"><Link to="/account/signup">signup</Link></li>
 		</>
 	)
 
