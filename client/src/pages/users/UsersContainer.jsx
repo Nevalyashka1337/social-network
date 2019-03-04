@@ -12,16 +12,17 @@ export class UsersContainer extends Component {
 	}
 
 	render() {
-		const { isLoading, users, isAuth } = this.props
+		const { isLoading, users, isAuth, username } = this.props
 		if ( !isAuth ) return <Redirect to='/'/>
-		return <UsersPage users={users} isAuth={isAuth} isLoading={isLoading}/>
+		return <UsersPage users={users} isAuth={isAuth} isLoading={isLoading} username={username}/>
 	}
 }
 
 const mapStateToProps = state => ({
 	isAuth: state.auth.isAuth,
 	users: state.users.users,
-	isLoading: state.users.isLoading
+	isLoading: state.users.isLoading,
+	username: state.auth.me.username
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
