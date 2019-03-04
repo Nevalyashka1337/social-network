@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SignInPage from './SignInPage'
 import { signIn } from '../../actions/auth'
+import { Redirect } from 'react-router-dom'
 
 export class SignInContainer extends Component {
 	state = {
@@ -24,7 +25,8 @@ export class SignInContainer extends Component {
 
 	render() {
 		const { signInError, isAuth } = this.props
-		return <SignInPage
+		return isAuth ? <Redirect to='/'/> :
+		<SignInPage
 		handleInput={this.handleInput}
 		submitForm={this.submitForm}
 		error={signInError}
