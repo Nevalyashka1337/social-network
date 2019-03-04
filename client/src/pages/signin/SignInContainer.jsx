@@ -19,6 +19,7 @@ export class SignInContainer extends Component {
 		e.preventDefault()
 		const { username, password } = this.state
 		this.props.signIn(username, password)
+		this.setState({ username: '', password: '' })
 	}
 
 	render() {
@@ -27,7 +28,9 @@ export class SignInContainer extends Component {
 		handleInput={this.handleInput}
 		submitForm={this.submitForm}
 		error={signInError}
-		isAuth={isAuth} />
+		isAuth={isAuth}
+		username={this.state.username}
+		password={this.state.password} />
 	}
 }
 
