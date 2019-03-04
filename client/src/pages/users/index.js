@@ -1,3 +1,3 @@
-import UsersPage from './UsersPage'
+import UsersContainer from './UsersContainer'
 
-export default UsersPage
+export default UsersContainer

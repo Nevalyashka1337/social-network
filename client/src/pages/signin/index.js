@@ -1,3 +1,3 @@
-import SignInPage from './SignInPage'
+import SignInContainer from './SignInContainer'
 
-export default SignInPage
+export default SignInContainer

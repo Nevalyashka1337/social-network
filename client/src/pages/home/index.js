@@ -1,3 +1,3 @@
-import HomePage from './HomePage'
+import HomeContainer from './HomeContainer'
 
-export default HomePage
+export default HomeContainer
