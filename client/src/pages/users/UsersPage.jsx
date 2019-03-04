@@ -1,13 +1,15 @@
 import React from 'react'
 import NavBar from '../../components/nav-bar'
 import { Link } from 'react-router-dom'
+import Preloader from '../../components/preloader'
 
-function UsersPage({ users, isAuth }) {
+function UsersPage({ users, isAuth, isLoading }) {
 	return (
 		<>
 			<NavBar isAuth={isAuth}/>
 			<h1>Users List</h1>
-			{getUserList(users)}
+			{ isLoading && <Preloader/>}
+			{ !isLoading && getUserList(users)}
 		</>
 	)
 }
