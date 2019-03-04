@@ -22,12 +22,13 @@ export class SignInContainer extends Component {
 	}
 
 	render() {
-		return <SignInPage handleInput={this.handleInput} submitForm={this.submitForm}/>
+		return <SignInPage handleInput={this.handleInput} submitForm={this.submitForm} error={this.props.signInError}/>
 	}
 }
 
 const mapStateToProps = state => ({
-	isAuth: state.auth.isAuth
+	isAuth: state.auth.isAuth,
+	signInError: state.auth.errors.signin
 })
 
 const mapDispatchToProps = dispatch => ({

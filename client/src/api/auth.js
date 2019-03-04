@@ -21,7 +21,7 @@ export default {
 				},
 				body: JSON.stringify({ username, password })
 			}).then(res => res.json()).then(res => {
-				res.success ? resolve(res.me) : reject()
+				res.success ? resolve(res.me) : reject(res.msg)
 			}).catch(() => {
 				reject()
 			})
@@ -38,7 +38,7 @@ export default {
 				},
 				body: JSON.stringify({ username, password })
 			}).then(res => res.json()).then(res => {
-				res.success ? resolve(res.me) : reject()
+				res.success ? resolve(res.me) : reject(res.msg)
 			}).catch(() => {
 				reject()
 			})

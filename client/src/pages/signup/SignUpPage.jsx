@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../../components/nav-bar'
 
-function SignUpPage({ submitForm, handleInput }) {
+function SignUpPage({ submitForm, handleInput, error }) {
 	return (
 		<div>
 			<NavBar/>
@@ -11,6 +11,7 @@ function SignUpPage({ submitForm, handleInput }) {
 				<input type="text" placeholder="password" name="password" onChange={handleInput}/>
 				<input type="submit" value="sign up"/>
 			</form>
+			{error && <p className="color-red">{error}</p>}
 		</div>
 	)
 }

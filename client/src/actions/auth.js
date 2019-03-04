@@ -14,8 +14,8 @@ export const signIn = (username, password) => dispatch => {
 	dispatch({ type: t.SIGNIN_REQUEST })
 	api.signin(username, password).then(me => {
 		dispatch({ type: t.SIGNIN_SUCCESS, payload: me })
-	}).catch(() => {
-		dispatch({ type: t.SIGNIN_FAILURE })
+	}).catch(msg => {
+		dispatch({ type: t.SIGNIN_FAILURE, payload: msg })
 	})
 }
 
@@ -23,7 +23,7 @@ export const signUp = (username, password) => dispatch => {
 	dispatch({ type: t.SIGNUP_REQUEST })
 	api.signup(username, password).then(me => {
 		dispatch({ type: t.SIGNUP_SUCCESS, payload: me })
-	}).catch(() => {
-		dispatch({ type: t.SIGNUP_FAILURE })
+	}).catch(msg => {
+		dispatch({ type: t.SIGNUP_FAILURE, payload: msg })
 	})
 }

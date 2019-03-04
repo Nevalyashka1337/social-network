@@ -23,12 +23,13 @@ export class SignUpContainer extends Component {
 	}
 
 	render() {
-		return <SignUpPage submitForm={this.submitForm} handleInput={this.handleInput}/>
+		return <SignUpPage submitForm={this.submitForm} handleInput={this.handleInput} error={this.props.signUpError}/>
 	}
 }
 
 const mapStateToProps = state => ({
-	isAuth: state.auth.isAuth
+	isAuth: state.auth.isAuth,
+	signUpError: state.auth.errors.signup
 })
 
 const mapDispatchToProps = dispatch => ({
