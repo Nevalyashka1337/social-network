@@ -22,7 +22,12 @@ export class SignInContainer extends Component {
 	}
 
 	render() {
-		return <SignInPage handleInput={this.handleInput} submitForm={this.submitForm} error={this.props.signInError}/>
+		const { signInError, isAuth } = this.props
+		return <SignInPage
+		handleInput={this.handleInput}
+		submitForm={this.submitForm}
+		error={signInError}
+		isAuth={isAuth} />
 	}
 }
 

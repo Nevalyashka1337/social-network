@@ -2,10 +2,10 @@ import React from 'react'
 import NavBar from '../../components/nav-bar'
 import { Link } from 'react-router-dom'
 
-function UsersPage({ users }) {
+function UsersPage({ users, isAuth }) {
 	return (
 		<>
-			<NavBar/>
+			<NavBar isAuth={isAuth}/>
 			<h1>Users List</h1>
 			{getUserList(users)}
 		</>

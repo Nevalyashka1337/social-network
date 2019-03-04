@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
 import './NavBar.css'
 
 function NavBar({ isAuth }) {
@@ -19,18 +18,10 @@ function NavBar({ isAuth }) {
 	)
 
 	return (
-		<>
-			<ul className="navbar">
-				{ isAuth ? authNavBar() : notAuthNavBar() }
-			</ul>
-		</>
+		<ul className="navbar">
+			{ isAuth ? authNavBar() : notAuthNavBar() }
+		</ul>
 	)
 }
 
-const mapStateToProps = state => ({
-	isAuth: state.auth.isAuth
-})
-
-export default connect(
-	mapStateToProps
-)(NavBar)
+export default NavBar

@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
 import HomePage from './HomePage'
+import { connect } from 'react-redux'
 
 export class HomeContainer extends Component {
 	render() {
-		return <HomePage/>
+		const { isAuth } = this.props
+		return <HomePage isAuth={isAuth}/>
 	}
 }
 
-export default HomeContainer
+const mapStateToProps = state => ({
+	isAuth: state.auth.isAuth
+})
+
+export default connect(
+	mapStateToProps
+)(HomeContainer)

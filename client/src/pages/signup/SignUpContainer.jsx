@@ -23,7 +23,12 @@ export class SignUpContainer extends Component {
 	}
 
 	render() {
-		return <SignUpPage submitForm={this.submitForm} handleInput={this.handleInput} error={this.props.signUpError}/>
+		const { signUpError, isAuth } = this.props
+		return <SignUpPage
+		submitForm={this.submitForm}
+		handleInput={this.handleInput}
+		error={signUpError}
+		isAuth={isAuth} />
 	}
 }
 

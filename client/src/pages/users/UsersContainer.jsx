@@ -12,14 +12,15 @@ export class UsersContainer extends Component {
 	}
 
 	render() {
-		const { isFetching, users, error } = this.props
+		const { isFetching, users, error, isAuth } = this.props
 		if ( isFetching ) return <Preloader/>
 		if ( error ) return <p>ERROR</p>
-		return <UsersPage users={users}/>
+		return <UsersPage users={users} isAuth={isAuth}/>
 	}
 }
 
 const mapStateToProps = state => ({
+	isAuth: state.auth.isAuth,
 	users: state.users.users,
 	isLoading: state.users.isLoading,
 	error: state.users.error
