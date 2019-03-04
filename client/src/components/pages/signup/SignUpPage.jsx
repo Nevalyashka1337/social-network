@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import NavBar from '../../nav-bar'
 import { connect } from 'react-redux'
 import { signUp } from '../../../actions/auth'
-import { isAuth } from '../../../selectors/auth'
 
 export class SignUpPage extends Component {
 
@@ -39,7 +38,7 @@ export class SignUpPage extends Component {
 }
 
 const mapStateToProps = state => ({
-	isAuth: isAuth(state)
+	isAuth: state.auth.isAuth
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -3,7 +3,6 @@ import NavBar from '../../nav-bar'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../../../actions/users'
-import { users, isFetching, error } from '../../../selectors/users'
 import { Link } from 'react-router-dom'
 
 export class UsersPage extends Component {
@@ -45,9 +44,9 @@ export class UsersPage extends Component {
 }
 
 const mapStateToProps = state => ({
-	users: users(state),
-	isFetching: isFetching(state),
-	error: error(state)
+	users: state.users.users,
+	isFetching: state.users.isFetching,
+	error: state.users.error
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { isChecked } from '../../selectors/auth'
 import { checkAuth } from '../../actions/auth'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from '../pages/home'
@@ -36,7 +35,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-	isChecked: isChecked(state)
+	isChecked: state.auth.isChecked
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
