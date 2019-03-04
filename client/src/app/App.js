@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { checkAuth } from '../actions/auth'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from '../pages/home'
+import ProfilePage from '../pages/profile'
 import UsersPage from '../pages/users'
 import SignInPage from '../pages/signin'
 import SignUpPage from '../pages/signup'
@@ -23,6 +24,8 @@ export class App extends Component {
 			<Route path='/users' exact render={() => <UsersPage/>} />
 			<Route path='/account/signin' exact render={() => <SignInPage/>} />
 			<Route path='/account/signup' exact render={() => <SignUpPage/>} />
+			<Route path='/:username' exact
+			render={({ match }) => <ProfilePage username={match.params.username}/>} />
 			<Route component={NotFound}/>
 		</Switch>
 	)
