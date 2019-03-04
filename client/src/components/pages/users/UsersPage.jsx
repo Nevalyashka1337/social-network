@@ -45,7 +45,7 @@ export class UsersPage extends Component {
 
 const mapStateToProps = state => ({
 	users: state.users.users,
-	isFetching: state.users.isFetching,
+	isLoading: state.users.isLoading,
 	error: state.users.error
 })
 

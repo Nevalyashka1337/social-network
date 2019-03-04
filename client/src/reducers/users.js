@@ -2,18 +2,18 @@ import * as t from '../constants/users'
 
 export const initState = {
 	users: [],
-	isFetching: false,
+	isLoading: false,
 	error: false
 }
 
 const usersReducer = (state = initState, action) => {
 	switch (action.type) {
 		case t.FETCH_USERS_REQUEST:
-			return { ...state, isFetching: true }
+			return { ...state, isLoading: true, users: [], error: false }
 		case t.FETCH_USERS_SUCCESS:
-			return { ...state, users: action.payload, isFetching: false }
+			return { ...state, users: action.payload, isLoading: false, error: false }
 		case t.FETCH_USERS_FAILURE:
-			return { ...state, isFetching: false, error: true }
+			return { ...state, isLoading: false, error: true, users: [] }
 		default:
 			return state
 	}
