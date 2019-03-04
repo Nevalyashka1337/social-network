@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import NavBar from './NavBar'
+import NavBar from '../../nav-bar'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchUsers } from '../actions/users'
-import { users, isFetching, error } from '../selectors/users'
+import { fetchUsers } from '../../../actions/users'
+import { users, isFetching, error } from '../../../selectors/users'
 import { Link } from 'react-router-dom'
 
 export class UsersPage extends Component {

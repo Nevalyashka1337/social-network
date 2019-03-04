@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import NavBar from './NavBar'
+import NavBar from '../../nav-bar'
 import { connect } from 'react-redux'
-import { signIn } from '../actions/auth'
-import { isAuth } from '../selectors/auth'
+import { signUp } from '../../../actions/auth'
+import { isAuth } from '../../../selectors/auth'
 
-export class SignInPage extends Component {
+export class SignUpPage extends Component {
 
 	state = {
 		username: '',
@@ -20,18 +20,18 @@ export class SignInPage extends Component {
 	submitForm = e => {
 		e.preventDefault()
 		const { username, password } = this.state
-		this.props.signIn(username, password)
+		this.props.signUp(username, password)
 	}
 
 	render() {
 		return (
 			<div>
 				<NavBar/>
-				<h1>sign in</h1>
+				<h1>sign up</h1>
 				<form onSubmit={this.submitForm}>
 					<input type="text" placeholder="username" name="username" onChange={this.handleInput}/>
 					<input type="text" placeholder="password" name="password" onChange={this.handleInput}/>
-					<input type="submit" value="sign in"/>
+					<input type="submit" value="sign up"/>
 				</form>
 			</div>
 		)
@@ -43,12 +43,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	signIn: (username, password) => {
-		dispatch(signIn(username, password))
+	signUp: (username, password) => {
+		dispatch(signUp(username, password))
 	}
 })
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(SignInPage)
+)(SignUpPage)

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { isAuth } from '../selectors/auth'
+import { isAuth } from '../../selectors/auth'
 
 function NavBar({ isAuth }) {
 	const authNavBar = () => (

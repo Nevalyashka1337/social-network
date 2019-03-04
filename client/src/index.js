@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import App from './components/app'
 
 import { Provider } from 'react-redux'
 import { configStore, history } from './store/index'
@@ -19,8 +19,8 @@ const Render = Component => {
 Render(App)
 
 if ( module.hot ) {
-	module.hot.accept('./App', () => {
-		const NextApp = require('./App').default
+	module.hot.accept('./components/app', () => {
+		const NextApp = require('./components/app').default
 		Render(NextApp)
 	})
 }
