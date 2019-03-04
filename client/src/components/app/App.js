@@ -8,6 +8,7 @@ import UsersPage from '../pages/users'
 import SignInPage from '../pages/signin'
 import SignUpPage from '../pages/signup'
 import NotFound from '../pages/not-found'
+import Preloader from '../preloader'
 import '../../styles/App.css'
 import { withRouter } from 'react-router-dom'
 
@@ -15,8 +16,6 @@ export class App extends Component {
 	componentDidMount() {
 		this.props.checkAuth()
 	}
-
-	preloader = () => (<p>loading...</p>)
 
 	routes = () => (
 		<Switch>
@@ -30,7 +29,7 @@ export class App extends Component {
 
 	render() {
 		const { isChecked } = this.props
-		return isChecked ? this.routes() : this.preloader()
+		return isChecked ? this.routes() : <Preloader/>
 	}
 }
 

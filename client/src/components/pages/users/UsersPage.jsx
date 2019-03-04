@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../../../actions/users'
 import { Link } from 'react-router-dom'
+import Preloader from '../../preloader'
 
 export class UsersPage extends Component {
 	componentDidMount() {
@@ -13,7 +14,7 @@ export class UsersPage extends Component {
 	getBody = () => {
 		const { isFetching, users, error } = this.props
 		if ( isFetching ) {
-			return (<p>loading...</p>)
+			return <Preloader/>
 		} else if (error) {
 			return (<p>ERROR</p>)
 		} else {
