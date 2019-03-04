@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NavBar from '../../nav-bar'
+import NavBar from '../../components/nav-bar'
 import { connect } from 'react-redux'
-import { signUp } from '../../../actions/auth'
+import { signUp } from '../../actions/auth'
 
 export class SignUpPage extends Component {
 

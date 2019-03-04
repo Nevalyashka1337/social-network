@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import { createBrowserHistory } from 'history'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import createRootReducer from '../reducers/index'
+import createRootReducer from './reducers/index'
 import { routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk'
 
@@ -20,7 +20,7 @@ export const configStore = () => {
 
 	if (process.env.NODE_ENV !== 'production') {
     if (module.hot) {
-      module.hot.accept('../reducers/index', () => {
+      module.hot.accept('./reducers/index', () => {
         store.replaceReducer(createRootReducer())
       })
     }

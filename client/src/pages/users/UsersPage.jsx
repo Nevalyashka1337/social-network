@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import NavBar from '../../nav-bar'
+import NavBar from '../../components/nav-bar'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchUsers } from '../../../actions/users'
+import { fetchUsers } from '../../actions/users'
 import { Link } from 'react-router-dom'
-import Preloader from '../../preloader'
+import Preloader from '../../components/preloader'
 
 export class UsersPage extends Component {
 	componentDidMount() {

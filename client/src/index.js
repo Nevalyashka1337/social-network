@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/app'
+import App from './app'
 
 import { Provider } from 'react-redux'
-import { configStore, history } from './store/index'
+import { configStore, history } from './store'
 import { ConnectedRouter } from 'connected-react-router'
 
 const Render = Component => {
@@ -19,8 +19,8 @@ const Render = Component => {
 Render(App)
 
 if ( module.hot ) {
-	module.hot.accept('./components/app', () => {
-		const NextApp = require('./components/app').default
+	module.hot.accept('./app', () => {
+		const NextApp = require('./app').default
 		Render(NextApp)
 	})
 }

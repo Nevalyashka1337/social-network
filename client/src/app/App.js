@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { checkAuth } from '../../actions/auth'
+import { checkAuth } from '../actions/auth'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from '../pages/home'
 import UsersPage from '../pages/users'
 import SignInPage from '../pages/signin'
 import SignUpPage from '../pages/signup'
 import NotFound from '../pages/not-found'
-import Preloader from '../preloader'
-import '../../styles/App.css'
+import Preloader from '../components/preloader'
+import './App.css'
 import { withRouter } from 'react-router-dom'
 
 export class App extends Component {
