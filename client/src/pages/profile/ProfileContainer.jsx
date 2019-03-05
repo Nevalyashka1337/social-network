@@ -13,24 +13,24 @@ export class ProfileContainer extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if ( prevProps.username !== this.props.username ) {
+		if ( prevProps.username !== this.props.username || prevProps.keyPage !== this.props.keyPage ) {
 			this.props.fetchUser(this.props.username)
 		}
 	}
 
 	render() {
-		const { isAuth, me, isLoading, user } = this.props
+		const { isAuth, isLoading, user } = this.props
 		if ( !isAuth ) return <Redirect to='/account/signin'/>
 		if ( isLoading ) return <Preloader/>
-		return !user.username ? <NotFound/> : <ProfilePage isAuth={isAuth} myUsername={me.username} user={user}/>
+		return !user.username ? <NotFound/> : <ProfilePage user={user}/>
 	}
 }
 
 const mapStateToProps = state => ({
 	isAuth: state.auth.isAuth,
-	me: state.auth.me,
 	isLoading: state.user.isLoading,
-	user: state.user.user
+	user: state.user.user,
+	keyPage: state.router.location.key
 })
 
 const mapDispatchToProps = dispatch => ({

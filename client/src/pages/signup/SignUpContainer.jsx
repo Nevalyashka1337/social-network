@@ -31,7 +31,6 @@ export class SignUpContainer extends Component {
 		submitForm={this.submitForm}
 		handleInput={this.handleInput}
 		error={signUpError}
-		isAuth={isAuth}
 		username={this.state.username}
 		password={this.state.password} />
 	}

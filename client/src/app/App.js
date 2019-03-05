@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { checkAuth } from '../actions/auth'
@@ -10,6 +10,7 @@ import SignInPage from '../pages/signin'
 import SignUpPage from '../pages/signup'
 import NotFound from '../pages/not-found'
 import Preloader from '../components/preloader'
+import NavBar from '../components/nav-bar'
 import './App.css'
 import { withRouter } from 'react-router-dom'
 
@@ -19,15 +20,18 @@ export class App extends Component {
 	}
 
 	routes = () => (
-		<Switch>
-			<Route path='/' exact render={() => <HomePage/>} />
-			<Route path='/users' exact render={() => <UsersPage/>} />
-			<Route path='/account/signin' exact render={() => <SignInPage/>} />
-			<Route path='/account/signup' exact render={() => <SignUpPage/>} />
-			<Route path='/:username' exact
-			render={({ match }) => <ProfilePage username={match.params.username}/>} />
-			<Route component={NotFound}/>
-		</Switch>
+		<Fragment>
+			<NavBar />
+			<Switch>
+				<Route path='/' exact render={() => <HomePage/>} />
+				<Route path='/users' exact render={() => <UsersPage/>} />
+				<Route path='/account/signin' exact render={() => <SignInPage/>} />
+				<Route path='/account/signup' exact render={() => <SignUpPage/>} />
+				<Route path='/:username' exact
+				render={({ match }) => <ProfilePage username={match.params.username}/>} />
+				<Route component={NotFound}/>
+			</Switch>
+		</Fragment>
 	)
 
 	render() {
@@ -37,6 +41,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
+	isAuth: state.auth.isAuth,
 	isChecked: state.auth.isChecked
 })
 

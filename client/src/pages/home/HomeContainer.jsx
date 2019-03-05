@@ -7,7 +7,7 @@ export class HomeContainer extends Component {
 	render() {
 		const { isAuth, me } = this.props
 		return isAuth ? <Redirect to={`/${me.username}`}/> :
-		<HomePage isAuth={isAuth}/>
+		<HomePage/>
 	}
 }
 

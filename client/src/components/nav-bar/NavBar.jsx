@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
+import { connect } from 'react-redux'
 
-function NavBar({ isAuth, username }) {
+function NavBar(props) {
 	const authNavBar = () => (
 		<>
-			<li className="navbar__item"><Link to={`/${username}`}>me</Link></li>
+			<li className="navbar__item"><Link to={`/${props.me.username}`}>me</Link></li>
 			<li className="navbar__item"><Link to="/users">users</Link></li>
 		</>
 	)
@@ -17,12 +18,19 @@ function NavBar({ isAuth, username }) {
 			<li className="navbar__item"><Link to="/account/signup">signup</Link></li>
 		</>
 	)
-
+	
 	return (
 		<ul className="navbar">
-			{ isAuth ? authNavBar() : notAuthNavBar() }
+			{ props.isAuth ? authNavBar() : notAuthNavBar() }
 		</ul>
 	)
 }
 
-export default NavBar
+const mapStateToProps = state => ({
+	isAuth: state.auth.isAuth,
+	me: state.auth.me
+})
+
+export default connect(
+	mapStateToProps
+)(NavBar)

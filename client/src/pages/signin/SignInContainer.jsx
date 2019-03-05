@@ -30,7 +30,6 @@ export class SignInContainer extends Component {
 		handleInput={this.handleInput}
 		submitForm={this.submitForm}
 		error={signInError}
-		isAuth={isAuth}
 		username={this.state.username}
 		password={this.state.password} />
 	}
