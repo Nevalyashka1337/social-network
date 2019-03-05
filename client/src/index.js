@@ -6,21 +6,12 @@ import { Provider } from 'react-redux'
 import { configStore, history } from './store'
 import { ConnectedRouter } from 'connected-react-router'
 
-const Render = Component => {
-	ReactDOM.render(
-	<Provider store={configStore()}>
-		<ConnectedRouter history={history}>
-			<Component/>
-		</ConnectedRouter>
-	</Provider>
-	, document.getElementById('root'))
-}
+const store = configStore()
 
-Render(App)
-
-if ( module.hot ) {
-	module.hot.accept('./app', () => {
-		const NextApp = require('./app').default
-		Render(NextApp)
-	})
-}
+ReactDOM.render(
+<Provider store={store}>
+	<ConnectedRouter history={history}>
+		<App/>
+	</ConnectedRouter>
+</Provider>
+, document.getElementById('root'))

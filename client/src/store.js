@@ -18,13 +18,5 @@ export const configStore = () => {
     )
   )
 
-	if (process.env.NODE_ENV !== 'production') {
-    if (module.hot) {
-      module.hot.accept('./reducers/index', () => {
-        store.replaceReducer(createRootReducer())
-      })
-    }
-	}
-
 	return store
 }
