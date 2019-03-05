@@ -27,3 +27,12 @@ export const signUp = (username, password) => dispatch => {
 		dispatch({ type: t.SIGNUP_FAILURE, payload: msg })
 	})
 }
+
+export const signOut = () => dispatch => {
+	dispatch({ type: t.SIGNOUT_REQUEST })
+	api.signout().then(() => {
+		dispatch({ type: t.SIGNOUT_SUCCESS })
+	}).catch(() => {
+		dispatch({ type: t.SIGNOUT_FAILURE })
+	})
+}

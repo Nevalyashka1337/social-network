@@ -43,5 +43,18 @@ export default {
 				reject()
 			})
 		})
+	},
+
+	signout: () => {
+		return new Promise((resolve, reject) => {
+			fetch('http://localhost:3001/api/auth/signout', {
+				method: 'POST',
+				credentials: 'include'
+			}).then(res => res.json()).then(res => {
+				res.success ? resolve() : reject()
+			}).catch(() => {
+				reject()
+			})
+		})
 	}
 }

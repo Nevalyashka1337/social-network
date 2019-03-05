@@ -2,12 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
 import { connect } from 'react-redux'
+import { signOut } from '../../actions/auth'
 
-function NavBar(props) {
+function NavBar({ me, isAuth, signOut }) {
 	const authNavBar = () => (
 		<>
-			<li className="navbar__item"><Link to={`/${props.me.username}`}>me</Link></li>
+			<li className="navbar__item"><Link to={`/${me.username}`}>me</Link></li>
 			<li className="navbar__item"><Link to="/users">users</Link></li>
+			<li className="navbar__item" onClick={() => signOut()}><Link to="/">signout</Link></li>
 		</>
 	)
 
@@ -21,7 +23,7 @@ function NavBar(props) {
 	
 	return (
 		<ul className="navbar">
-			{ props.isAuth ? authNavBar() : notAuthNavBar() }
+			{ isAuth ? authNavBar() : notAuthNavBar() }
 		</ul>
 	)
 }
@@ -31,6 +33,13 @@ const mapStateToProps = state => ({
 	me: state.auth.me
 })
 
+const mapDispatchToProps = dispatch => ({
+	signOut: () => {
+		dispatch(signOut())
+	}
+})
+
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(NavBar)

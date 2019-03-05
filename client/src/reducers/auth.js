@@ -12,6 +12,8 @@ export const initState = {
 
 const authReducer = (state = initState, action) => {
 	switch (action.type) {
+		case '@@router/LOCATION_CHANGE':
+			return { ...state, errors: { signin: '', signup: '' } }
 		case t.CHECK_AUTH_FAILURE:
 			return { ...state, isChecked: true }
 		case t.CHECK_AUTH_SUCCESS:
@@ -24,8 +26,8 @@ const authReducer = (state = initState, action) => {
 		return { ...state, isAuth: false, me: null, errors: { ...state.errors, signin: action.payload } }
 		case t.SIGNUP_FAILURE:
 			return { ...state, isAuth: false, me: null, errors: { ...state.errors, signup: action.payload }  }
-		case '@@router/LOCATION_CHANGE':
-			return { ...state, errors: { signin: '', signup: '' } }
+		case t.SIGNOUT_SUCCESS:
+			return { ...state, isAuth: false, me: null }
 		default:
 			return state
 	}
