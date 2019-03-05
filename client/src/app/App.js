@@ -11,7 +11,6 @@ import SignUpPage from '../pages/signup'
 import NotFound from '../pages/not-found'
 import Preloader from '../components/preloader'
 import NavBar from '../components/nav-bar'
-import './App.css'
 import { withRouter } from 'react-router-dom'
 
 export class App extends Component {

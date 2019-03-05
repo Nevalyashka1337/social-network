@@ -1,30 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './NavBar.css'
 import { connect } from 'react-redux'
 import { signOut } from '../../actions/auth'
 
 function NavBar({ me, isAuth, signOut }) {
 	const authNavBar = () => (
 		<>
-			<li className="navbar__item"><Link to={`/${me.username}`}>me</Link></li>
-			<li className="navbar__item"><Link to="/users">users</Link></li>
-			<li className="navbar__item" onClick={() => signOut()}><Link to="/">signout</Link></li>
+			<li className="nav-item"><Link className="nav-link" to={`/${me.username}`}>Profile</Link></li>
+			<li className="nav-item"><Link className="nav-link" to="/users">Users</Link></li>
+			<li className="nav-item" onClick={() => signOut()}><Link className="nav-link" to="/">Sign out</Link></li>
 		</>
 	)
 
 	const notAuthNavBar = () => (
 		<>
-			<li className="navbar__item"><Link to="/">home</Link></li>
-			<li className="navbar__item"><Link to="/account/signin">signin</Link></li>
-			<li className="navbar__item"><Link to="/account/signup">signup</Link></li>
+			<li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+			<li className="nav-item"><Link className="nav-link" to="/account/signin">Sign in</Link></li>
+			<li className="nav-item"><Link className="nav-link" to="/account/signup">Sign up</Link></li>
 		</>
 	)
 	
 	return (
-		<ul className="navbar">
-			{ isAuth ? authNavBar() : notAuthNavBar() }
-		</ul>
+		<div className="container mb-3">
+			<div className="row">
+				<div className="col">
+					<ul className="nav justify-content-center">
+						{ isAuth ? authNavBar() : notAuthNavBar() }
+					</ul>
+				</div>
+			</div>
+		</div>
 	)
 }
 

@@ -2,9 +2,17 @@ import React from 'react'
 
 function ProfilePage({ user, isMe }) {
 	return (
-		<div>
-			<h1>Profile: {user.username}</h1>
-			{ isMe && <p>and... it's me</p> }
+		<div className="container">
+			<div className="row">
+				<div className="col text-center">
+					<h1 className="display-4">{user.username}</h1>
+				</div>
+			</div>
+			<div className="row">
+				<div className="col">
+					{ isMe && <p>and... it's me</p> }
+				</div>
+			</div>
 		</div>
 	)
 }
