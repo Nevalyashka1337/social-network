@@ -1,7 +1,9 @@
+import { API_URL } from '../config'
+
 export default {
 	checkAuth: () => {
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3001/api/me', {
+			fetch(`${API_URL}/api/me`, {
 				credentials: 'include'
 			}).then(res => res.json()).then(res => {
 				res.success ? resolve(res.me) : reject()
@@ -13,7 +15,7 @@ export default {
 
 	signin: (username, password) => {
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3001/api/auth/signin', {
+			fetch(`${API_URL}/api/auth/signin`, {
 				method: 'POST',
 				credentials: 'include',
 				headers: {
@@ -30,7 +32,7 @@ export default {
 
 	signup: (username, password) => {
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3001/api/auth/signup', {
+			fetch(`${API_URL}/api/auth/signup`, {
 				method: 'POST',
 				credentials: 'include',
 				headers: {
@@ -47,7 +49,7 @@ export default {
 
 	signout: () => {
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3001/api/auth/signout', {
+			fetch(`${API_URL}/api/auth/signout`, {
 				method: 'POST',
 				credentials: 'include'
 			}).then(res => res.json()).then(res => {

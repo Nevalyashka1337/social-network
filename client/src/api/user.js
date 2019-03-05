@@ -1,7 +1,9 @@
+import { API_URL } from '../config'
+
 export default {
 	getUser: username => {
 		return new Promise((resolve, reject) => {
-			fetch(`http://localhost:3001/api/user/${username}`, {
+			fetch(`${API_URL}/api/user/${username}`, {
 				credentials: 'include'
 			})
 			.then(body => body.json()).then(res => {
