@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 const AuthRoute = ({ component: Component, redirect = '/', isAuth, reverse,...rest }) => {
 	return (
-		<Route {...rest} render={() => {
-				if ( reverse ) return !isAuth ? <Component/> :  <Redirect to={redirect}/>
-				else return isAuth ? <Component/> :  <Redirect to={redirect}/>
+		<Route {...rest} render={(props) => {
+				if ( reverse ) return !isAuth ? <Component {...props}/> :  <Redirect to={redirect}/>
+				else return isAuth ? <Component {...props}/> :  <Redirect to={redirect}/>
 			}
 		}/>
 	)
