@@ -8,22 +8,33 @@ import NotFound from '../../components/not-found'
 export class ProfileContainer extends Component {
 	
 	componentDidMount() {
-		this.props.fetchUser(this.props.username)
+		const { match: { params : { username } } } = this.props
+		this.props.fetchUser(username)
 	}
 
 	componentDidUpdate(prevProps) {
 		if ( prevProps.username !== this.props.username || prevProps.keyPage !== this.props.keyPage ) {
-			this.props.fetchUser(this.props.username)
+			const { match: { params : { username } } } = this.props
+			this.props.fetchUser(username)
 		}
 	}
 
 	render() {
-		const { isLoading, user, me, username } = this.props
-		let isMe
-		if ( me !== null && me.username === username) isMe = true
-		else isMe = false
-		if ( isLoading ) return <Preloader/>
-		return !user.username ? <NotFound/> : <ProfilePage user={user} isMe={isMe}/>
+		const {
+			isLoading,
+			user,
+			me,
+			match: { params : { username: searchUsrname } }
+		} = this.props
+		
+		if ( isLoading ) {
+			return <Preloader/>
+		} else if ( user !== null && user.username === searchUsrname ) {
+			if ( me.username === searchUsrname ) return <ProfilePage user={me} isMe/>
+			else return <ProfilePage user={user}/>
+		} else {
+			return <NotFound/>
+		}
 	}
 }
 
@@ -31,7 +42,7 @@ const mapStateToProps = state => ({
 	isLoading: state.user.isLoading,
 	user: state.user.user,
 	keyPage: state.router.location.key,
-	me: state.auth.me
+	me: state.auth.me,
 })
 
 const mapDispatchToProps = dispatch => ({

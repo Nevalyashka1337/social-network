@@ -4,7 +4,7 @@ function ProfilePage({ user, isMe }) {
 	return (
 		<div className="container">
 			<div className="row">
-				<div className="col text-center">
+				<div className="col">
 					<h1 className="display-4">{user.username}</h1>
 				</div>
 			</div>
