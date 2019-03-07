@@ -12,6 +12,7 @@ import NotFound from '../pages/not-found'
 import Preloader from '../components/preloader'
 import NavBar from '../components/nav-bar'
 import { withRouter } from 'react-router-dom'
+import AuthRoute from '../components/AuthRoute'
 
 export class App extends Component {
 	componentDidMount() {
@@ -23,11 +24,10 @@ export class App extends Component {
 			<NavBar />
 			<Switch>
 				<Route path='/' exact render={() => <HomePage/>} />
-				<Route path='/users' exact render={() => <UsersPage/>} />
-				<Route path='/account/signin' exact render={() => <SignInPage/>} />
-				<Route path='/account/signup' exact render={() => <SignUpPage/>} />
-				<Route path='/:username' exact
-				render={({ match }) => <ProfilePage username={match.params.username}/>} />
+				<AuthRoute path='/users' redirect='/account/signin' exact component={UsersPage}/>
+				<AuthRoute path='/account/signin' redirect='/' exact reverse component={SignInPage}/>
+				<AuthRoute path='/account/signup' redirect='/' exact reverse component={SignUpPage}/>
+				<AuthRoute path='/:username' redirect='/account/signin' exact component={ProfilePage}/>
 				<Route component={NotFound}/>
 			</Switch>
 		</Fragment>

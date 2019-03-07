@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import ProfilePage from './ProfilePage'
 import { fetchUser } from '../../actions/user'
 import Preloader from '../../components/preloader'
@@ -19,19 +18,16 @@ export class ProfileContainer extends Component {
 	}
 
 	render() {
-		const { isAuth, isLoading, user, me, username } = this.props
+		const { isLoading, user, me, username } = this.props
 		let isMe
 		if ( me !== null && me.username === username) isMe = true
 		else isMe = false
-		
-		if ( !isAuth ) return <Redirect to='/account/signin'/>
 		if ( isLoading ) return <Preloader/>
 		return !user.username ? <NotFound/> : <ProfilePage user={user} isMe={isMe}/>
 	}
 }
 
 const mapStateToProps = state => ({
-	isAuth: state.auth.isAuth,
 	isLoading: state.user.isLoading,
 	user: state.user.user,
 	keyPage: state.router.location.key,
