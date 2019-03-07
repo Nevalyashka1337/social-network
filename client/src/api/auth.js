@@ -1,4 +1,6 @@
-import { API_URL } from '../config'
+import config from '../config'
+
+const { API_URL } = config
 
 export default {
 	checkAuth: () => {
