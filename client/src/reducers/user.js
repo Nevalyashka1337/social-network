@@ -2,7 +2,7 @@ import * as t from '../constants/user'
 
 export const initState = {
 	user: {},
-	isLoading: false
+	isLoading: true
 }
 
 const usersReducer = (state = initState, action) => {
