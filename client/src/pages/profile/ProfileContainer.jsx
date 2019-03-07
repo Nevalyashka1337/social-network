@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ProfilePage from './ProfilePage'
 import { fetchUser } from '../../actions/user'
 import Preloader from '../../components/preloader'
-import NotFound from '../not-found'
+import NotFound from '../../components/not-found'
 
 export class ProfileContainer extends Component {
 	
